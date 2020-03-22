@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'servicos/busca', to: 'servicos#busca', as: :busca_servico
+  resources :servicos, only: [ :new, :create, :destroy ]
+  root to: 'servicos#index'
 end

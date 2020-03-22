@@ -1,0 +1,32 @@
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td></td>
+            <td>Nome</td>
+            <td>Cidade</td>
+            <td>Descrição</td>
+            <td>Locais de entrega</td>
+            <td>Telefone</td>
+            <td>Celular</td>
+            <td>Email</td>
+            <td colspan=''></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @servicos.each do |servico| %>
+          <tr>
+          <td><%= servico.foto %></td>
+            <td><%= servico.nome %></td>
+            <td><%= servico.cidade %></td>
+            <td><%= servico.descricao %></td>
+            <td><%= servico.localentrega %></td>
+            <td><%= servico.telefone %></td>
+            <td><%= servico.celular %></td>
+            <td><%= servico.email %></td>
+            <td><%= button_to "Remover", servico, method: :delete, 
+            class:"btn btn-danger", 
+            data: { confirm: "Tem certeza que deseja remover #{servico.nome}?" }  %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
