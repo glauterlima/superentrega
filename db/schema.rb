@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_023302) do
+ActiveRecord::Schema.define(version: 2020_03_23_234850) do
+
+  create_table "grupos", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "servicos", force: :cascade do |t|
     t.string "foto"

@@ -1,3 +1,8 @@
+      <% if flash[:notice] %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>      
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -9,7 +14,7 @@
             <td>Telefone</td>
             <td>Celular</td>
             <td>Email</td>
-            <td colspan=''></td>
+            <td colspan="1"></td>
           </tr>
         </thead>
         <tbody>
