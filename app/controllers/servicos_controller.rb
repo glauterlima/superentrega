@@ -1,4 +1,5 @@
 class ServicosController < ApplicationController
+  before_action :set_servico, only: [:edit, :update, :destroy]
 
   def index
     @servicos = Servico.order(nome: :asc).limit 10
@@ -6,28 +7,55 @@ class ServicosController < ApplicationController
 
   def new
     @servico = Servico.new
+    @grupos = Grupo.all
+  end
+
+  def edit
+    renderiza :edit
+  end
+
+  def update
+    if @servico.update servico_params
+      flash[:notice] = 'Serviço atualizado com sucesso!'
+      redirect_to root_url
+    else
+      renderiza :edit
+    end
   end
 
   def create
-    valores = params.require(:servico).permit(:foto, :nome, :cidade, :descricao, :localentrega, :telefone, :celular, :email)
-    @servico = Servico.new valores
+    @servico = Servico.new servico_params
     if @servico.save
-      flash[:notice] = "Serviço salvo com sucesso!"
+      flash[:notice] = 'Serviço salvo com sucesso!'
       redirect_to root_url
     else
-      render :new
+      renderiza :new
     end
-   
   end
 
   def destroy
-    id = params[:id]
-    Servico.destroy id
+    @servico.destroy
     redirect_to root_url
   end
 
   def busca
     @descricao = params[:descricao]
-    @servicos = Servico.where "descricao like ?", "%#{@descricao}%"
+    @servicos = Servico.where 'descricao like ?', "%#{@descricao}%"
+  end
+
+  private
+
+  def servico_params
+    params.require(:servico).permit(:foto, :nome, :cidade, :descricao, 
+      :localentrega, :telefone, :celular, :email, :grupo_id)
+  end
+
+  def set_servico
+    @servico = Servico.find(params[:id]) 
+  end
+
+  def renderiza(view)
+    @grupos = Grupo.all
+    render view
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :grupos
   get 'servicos/busca', to: 'servicos#busca', as: :busca_servico
-  resources :servicos, only: [ :new, :create, :destroy ]
+  resources :servicos, only: [ :new, :create, :destroy, :edit, :update ]
   root to: 'servicos#index'
 end
