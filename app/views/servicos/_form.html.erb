@@ -17,8 +17,31 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <%= form.label :cidade %> 
-            <%= form.text_field :cidade, class:"form-control" %>
+            <%= form.label :cidade %>             
+           <%= form.select :cidade,  
+           [
+             'Brasília', 
+             'Brazlândia', 
+             'Ceilândia',
+             'Cruzeiro',
+             'Fercal',
+             'Gama',
+             'Guará',
+             'Lago Norte',
+             'Lago Sul',
+             'Núcleo Bandeirante',
+             'Paranoá',
+             'Planaltina',
+             'Recanto das Emas',
+             'Riacho Fundo I',
+             'Riacho Fundo II',
+             'Samambaia',
+             'Santa Maria',
+             'São Sebastião',
+             'Sobradinho',
+             'Sol Nascente',
+             'Taguatinga'
+            ] %>
           </div>
         </div>
       </div>
@@ -55,7 +78,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :telefone %> 
-            <%= form.text_field :telefone, class:"form-control" %>
+            <%= form.telephone_field :telefone, class:"form-control" %>
           </div>
         </div>
       </div>
@@ -64,7 +87,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :celular %> 
-            <%= form.text_field :celular, class:"form-control" %>
+            <%= form.telephone_field :celular, class:"form-control" %>
           </div>
         </div>
       </div>
