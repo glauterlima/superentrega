@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @grupo.nome %>
-</p>
+<table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>Nome</td>
+            <td>Cidade</td>
+            <td>Descrição</td>
+            <td>Local de entrega</td>
+            <td>Telefone</td>
+            <td>WhatsApp</td>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @servicos_por_grupo %>
+        </tbody>
+      </table>
 
-<%= link_to 'Edit', edit_grupo_path(@grupo) %> |
-<%= link_to 'Back', grupos_path %>
+<!--<%= link_to 'Editar', edit_grupo_path(@grupo), class:"btn btn-default" %>--> 
+<%= link_to 'Voltar', grupos_path, class:"btn btn-default"  %>

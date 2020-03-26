@@ -10,6 +10,7 @@ class GruposController < ApplicationController
   # GET /grupos/1
   # GET /grupos/1.json
   def show
+    @servicos_por_grupo = Servico.where("grupo_id = ?", params[:id])
   end
 
   # GET /grupos/new
